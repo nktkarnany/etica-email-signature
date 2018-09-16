@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="myApp">
 
 <head>
   <title>Etica Email Template</title>
@@ -12,13 +12,18 @@
 
   <link rel="stylesheet" href="style.css">
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   <meta>
 </head>
 
 <body>
 
-  <section class="generator">
-    <div class="generator--template">
+  <section class="generator" ng-controller="myCtrl">
+    <div class="generator--template" id="signature">
 
       <!--UNCOMMENT <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
       <HTML><HEAD><TITLE>Email Signature</TITLE>
@@ -31,7 +36,7 @@
         <tbody>
           <tr>
             <td style="font-size: 10pt; font-family: Arial, sans-serif; border-right: 1px solid; border-right-color: #c25398; width: 105px; padding-right: 10px; vertical-align: middle; text-align: center;" valign="top" rowspan="6" align="center">
-              <img alt="photograph" width="132" border="0" style="border:0; height:auto; width:132px; border-radius: 50%;" src="https://drive.google.com/uc?export=view&id=16TEQES4at0qSdTnXfYSriNtgGQqraC8o">
+              <img alt="photograph" width="132" border="0" style="border:0; height:auto; width:132px; border-radius: 50%;" ng-src="{{pic}}">
             </td>
             <td>
               <table cellpadding="0" cellspacing="0">
@@ -39,9 +44,9 @@
                   <tr>
                     <td style="color:#c25398; font-family: Arial, sans-serif; width: 305px; padding-bottom: 5px; padding-left: 10px; vertical-align: top; line-height:15px;" valign="top">
                       <strong>
-                        <span style="font-size: 14px; font-family: Arial, sans-serif; color:#c25398;">Gajendra Kothari, CFA, CAIA<br></span>
+                        <span style="font-size: 14px; font-family: Arial, sans-serif; color:#c25398;">{{name}}<br></span>
                       </strong>
-                      <span style="font-family: Arial, sans-serif; font-size:12px; color:#444444;">Managing Director &amp; CEO</span>
+                      <span style="font-family: Arial, sans-serif; font-size:12px; color:#444444;">{{designation}}</span>
                     </td>
                   </tr>
                   <tr>
@@ -105,26 +110,27 @@
     <div class="generator--controls row">
       <div class="col col-md-6">
         <form>
-          <div class="form-group">
+          <div class="form-group" ng-init="name='Gajendra Kothari, CFA, CAIA'">
             <label for="email">Name:</label>
-            <input type="text" class="form-control" id="name" value="Gajendra Kothari, CFA, CAIA">
+            <input type="text" class="form-control" id="name" ng-model="name">
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-init="designation='Managing Director & CEO'">
             <label for="email">Designation:</label>
-            <input type="text" class="form-control" id="designation" value="Managing Director & CEO">
+            <input type="text" class="form-control" id="designation" ng-model="designation">
           </div>
-          <div class="form-group">
+          <div class="form-group" ng-init="pic='https://drive.google.com/uc?export=view&id=16TEQES4at0qSdTnXfYSriNtgGQqraC8o'">
             <label for="email">Profile Pic Url:</label>
-            <input type="text" class="form-control" id="pic" value="https://drive.google.com/uc?export=view&id=16TEQES4at0qSdTnXfYSriNtgGQqraC8o">
+            <input type="text" class="form-control" id="pic" ng-model="pic">
           </div>
-          <button type="submit" class="btn btn-block" style="background-color: #c25398; color: #fff;">Copy Template</button>
         </form>
       </div>
     </div>
   </section>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script>
+    angular.module('myApp', []).
+    controller('myCtrl', ['$scope', function($scope) {}]);
+  </script>
 
 </body>
 
