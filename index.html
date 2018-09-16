@@ -8,6 +8,8 @@
   <meta name="viewport" content="width=device-width; initial-scale=1;">
   <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
   <link rel="stylesheet" href="style.css">
 
   <meta>
@@ -29,7 +31,7 @@
         <tbody>
           <tr>
             <td style="font-size: 10pt; font-family: Arial, sans-serif; border-right: 1px solid; border-right-color: #c25398; width: 105px; padding-right: 10px; vertical-align: middle; text-align: center;" valign="top" rowspan="6" align="center">
-              <img ng-if="showField('photo')" ng-src="pp.jpeg" alt="photograph" width="132" border="0" style="border:0; height:auto; width:132px; border-radius: 50%;" src="pp.jpeg">
+              <img alt="photograph" width="132" border="0" style="border:0; height:auto; width:132px; border-radius: 50%;" src="https://drive.google.com/uc?export=view&id=16TEQES4at0qSdTnXfYSriNtgGQqraC8o">
             </td>
             <td>
               <table cellpadding="0" cellspacing="0">
@@ -76,9 +78,13 @@
                     </table>
                   </tr>
                   <tr>
-                    <td style="font-size: 10pt; color:#444444; font-family: Arial, sans-serif; padding-bottom: 5px; padding-top: 5px; padding-left: 10px; vertical-align: top;" valign="top">
+                    <td style="font-size: 10pt; color:#444444; font-family: Arial, sans-serif; padding-top: 5px; padding-left: 10px; vertical-align: bottom;" valign="top">
                       <span style="font-size: 12px; font-family: Arial, sans-serif; color:#444444;">"What is good for the client is also good for the firm"<br></span>
-                      <span style="font-size: 12px; font-family: Arial, sans-serif; color:#c25398;">- T Rowe Price Jr.<br></span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td style="font-size: 10pt; color:#444444; font-family: Arial, sans-serif; padding-left: 10px; vertical-align: top; float: right;" valign="top">
+                      <span style="font-size: 12px; font-family: Arial, sans-serif; color:#c25398;"><strong>- T Rowe Price Jr.</strong><br></span>
                     </td>
                   </tr>
 
@@ -96,10 +102,29 @@
 
     </div>
 
-    <div class="generator--controls">
-      b
+    <div class="generator--controls row">
+      <div class="col col-md-6">
+        <form>
+          <div class="form-group">
+            <label for="email">Name:</label>
+            <input type="text" class="form-control" id="name" value="Gajendra Kothari, CFA, CAIA">
+          </div>
+          <div class="form-group">
+            <label for="email">Designation:</label>
+            <input type="text" class="form-control" id="designation" value="Managing Director & CEO">
+          </div>
+          <div class="form-group">
+            <label for="email">Profile Pic Url:</label>
+            <input type="text" class="form-control" id="pic" value="https://drive.google.com/uc?export=view&id=16TEQES4at0qSdTnXfYSriNtgGQqraC8o">
+          </div>
+          <button type="submit" class="btn btn-block" style="background-color: #c25398; color: #fff;">Copy Template</button>
+        </form>
+      </div>
     </div>
   </section>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </body>
 
