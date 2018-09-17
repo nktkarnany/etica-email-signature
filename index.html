@@ -2,7 +2,7 @@
 <html ng-app="myApp">
 
 <head>
-  <title>Etica Email Template</title>
+  <title>Etica Email Signature</title>
 
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width; initial-scale=1;">
@@ -22,27 +22,31 @@
 
 <body>
 
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="/">
+          Etica Email Signature
+        </a>
+      </div>
+      <p class="navbar-text" style="float: right;"><a href="https://github.com/nktkarnany/etica-email-signature/blob/master/README.md" class="navbar-link">Go To Documentation</a></p>
+    </div>
+  </nav>
+
   <section class="generator" ng-controller="myCtrl">
     <div class="generator--template" id="signature">
 
-      <!--UNCOMMENT <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
-      <HTML><HEAD><TITLE>Email Signature</TITLE>
-      <META content="text/html; charset=utf-8" http-equiv="Content-Type">
-      </HEAD>
-      <BODY style="font-size: 10pt; font-family: Arial, sans-serif;">
-      UNCOMMENT-->
-
-      <table style="width: 430px; font-size: 10pt; font-family: Arial, sans-serif;" cellpadding="0" cellspacing="0">
+      <table style="width: 430px; font-family: Arial, sans-serif;" cellpadding="0" cellspacing="0">
         <tbody>
           <tr>
-            <td style="font-size: 10pt; font-family: Arial, sans-serif; border-right: 1px solid; border-right-color: #CC0099; width: 105px; padding-right: 10px; vertical-align: middle; text-align: center;" valign="top" rowspan="6" align="center">
+            <td style="font-family: Arial, sans-serif; border-right: 1px solid; border-right-color: #CC0099; width: 105px; padding-right: 10px; vertical-align: middle; text-align: center;" valign="top" rowspan="6" align="center">
               <img alt="photograph" width="132" border="0" style="border:0; height:auto; width:132px; border-radius: 50%;" ng-src="{{pic}}">
             </td>
             <td>
               <table cellpadding="0" cellspacing="0">
                 <tbody>
                   <tr>
-                    <td style="color:#CC0099; font-family: Arial, sans-serif; width: 305px; padding-bottom: 5px; padding-left: 10px; vertical-align: top; line-height:15px;" valign="top">
+                    <td style="width: 305px; padding-bottom: 5px; padding-left: 10px; vertical-align: top; line-height:16px;" valign="top">
                       <strong>
                         <span style="font-size: 14px; font-family: Arial, sans-serif; color:#CC0099;">{{name}}<br></span>
                       </strong>
@@ -50,9 +54,9 @@
                     </td>
                   </tr>
                   <tr>
-                    <td style="font-size: 10pt; color:#444444; font-family: Arial, sans-serif; padding-bottom: 5px; padding-top: 5px; padding-left: 10px; vertical-align: top;" valign="top">
-                      <span style="color: #CC0099;"><strong>Etica Wealth Management (P) Ltd</strong><br></span>
-                      <span style="font-size: 12px; font-family: Arial, sans-serif; color:#444444;">T : +91 22 2201 1727 | M : +91 98678 24321<br></span>
+                    <td style="color:#444444; padding-bottom: 5px; padding-top: 5px; padding-left: 10px; vertical-align: top; line-height:16px;" valign="top">
+                      <strong><span style="color: #CC0099; font-family: Arial, sans-serif; font-size: 14px;">Etica Wealth Management (P) Ltd<br></span></strong>
+                      <span style="font-size: 12px; font-family: Arial, sans-serif; color:#444444;">T : +91 22 2201 1727 | M : <span>{{mobile}}</span><br></span>
                       <span style="font-size: 12px; font-family: Arial, sans-serif; color:#444444;">Mumbai | Kolkata | New Delhi | Jorhat (Assam)<br></span>
                     </td>
                   </tr>
@@ -63,22 +67,26 @@
 
                           <td style="padding-bottom:10px; padding-left:10px; vertical-align:top; text-align:left; padding-right: 10px; border-right: 1px solid #CC0099;" valign="top" align="left">
 
-                            <a href="http://eticawealth.com/" target="_blank" rel="noopener" style="text-decoration:none;">
-                              <img alt="banner" width="88" style="width:88; height:auto; border:0;" border="0" src="https://drive.google.com/uc?export=view&id=17lHrK0Dr27fNhBnwEcor9Dgdff36NbDW">
+                            <a href="http://eticawealth.com/" target="_blank" rel="noopener" style="text-decoration:none;" title="Visit Etica">
+                              <img alt="banner" width="68" style="width:68; height:auto; border:0;" border="0" src="https://drive.google.com/uc?export=view&id=17lHrK0Dr27fNhBnwEcor9Dgdff36NbDW">
                             </a>
 
                           </td>
                           <td style="padding-bottom:10px; padding-right:10px; padding-left:10px; vertical-align:middle; text-align:center;" valign="middle" align="center">
 
-                            <a href="https://www.facebook.com/eticawealth/" target="_blank" rel="noopener"><img border="0" width="23" alt="facebook icon" style="border:0; height:23px; width:23px" src="https://drive.google.com/uc?export=view&id=1edPcyDk37ewkbkUTw7Cf_hTeAPeZllAI"></a>
+                            <a href="{{facebook}}" target="_blank" rel="noopener" title="Visit Facebook"><img border="0" width="21" alt="facebook icon" style="border:0; height:21px; width:21px" src="https://drive.google.com/uc?export=view&id=1edPcyDk37ewkbkUTw7Cf_hTeAPeZllAI"></a>
 
-                            <a href="https://twitter.com/eticawealth" target="_blank" rel="noopener"><img border="0" width="23" alt="twitter icon" style="border:0; height:23px; width:23px" src="https://drive.google.com/uc?export=view&id=1S9L-LQAzfLQamzo3eHqZhtZh9pBc3EKS"></a>
+                            <a href="{{twitter}}" target="_blank" rel="noopener" title="Visit Twitter"><img border="0" width="21" alt="twitter icon" style="border:0; height:21px; width:21px" src="https://drive.google.com/uc?export=view&id=1S9L-LQAzfLQamzo3eHqZhtZh9pBc3EKS"></a>
 
-                            <a href="https://www.instagram.com/eticawealth/?hl=en" target="_blank" rel="noopener"><img border="0" width="23" alt="linkedin icon" style="border:0; height:23px; width:23px" src="https://drive.google.com/uc?export=view&id=1k2V4sKfeM67RqGmHOfXtxS89QRXJm9LZ"></a>
+                            <a href="https://www.instagram.com/eticawealth/?hl=en" target="_blank" rel="noopener" title="Visit Instagram"><img border="0" width="21" alt="instagram icon" style="border:0; height:21px; width:21px" src="https://drive.google.com/uc?export=view&id=1k2V4sKfeM67RqGmHOfXtxS89QRXJm9LZ"></a>
 
-                            <a href="https://www.linkedin.com/company/etica-wealth-management-private-limited/" target="_blank" rel="noopener"><img border="0" width="23" alt="linkedin icon" style="border:0; height:23px; width:23px" src="https://drive.google.com/uc?export=view&id=1C88NJQioHUhqCXa1Vi5Fr-kDjWwEEGlz"></a>
+                            <a href="{{linkedin}}" target="_blank" rel="noopener" title="Visit LinkedIn"><img border="0" width="21" alt="linkedin icon" style="border:0; height:21px; width:21px" src="https://drive.google.com/uc?export=view&id=1C88NJQioHUhqCXa1Vi5Fr-kDjWwEEGlz"></a>
 
-                            <a href="https://www.youtube.com/channel/UCubtG4SU0l3y662BaiDFzcg" target="_blank" rel="noopener"><img border="0" width="23" alt="youtube icon" style="border:0; height:23px; width:23px" src="https://drive.google.com/uc?export=view&id=1dW1RcALU0cbEdhMs_3ytfGFuX9apq9E1"></a>
+                            <a href="https://www.youtube.com/channel/UCubtG4SU0l3y662BaiDFzcg" target="_blank" rel="noopener" title="Visit Youtube Channel"><img border="0" width="21" alt="youtube icon" style="border:0; height:21px; width:21px" src="https://drive.google.com/uc?export=view&id=1dW1RcALU0cbEdhMs_3ytfGFuX9apq9E1"></a>
+
+                            <a ng-if="zomato != ''" href="" target="_blank" rel="noopener" title="Visit Zomato Blog"><img border="0" width="21" alt="zomato icon" style="border:0; height:21px; width:21px" src="https://drive.google.com/uc?export=view&id=1Qc1GQt1WgzUACns7tNP4LxaqhqTo0kXY"></a>
+
+                            <a href="http://eticawealth.com/" target="_blank" rel="noopener" title="Visit Etica"><img border="0" width="21" alt="etica icon" style="border:0; height:21px; width:21px" src="https://drive.google.com/uc?export=view&id=1ITg-uLBZm3QTmzOT6KY8FAeuI_2K89vI"></a>
 
                           </td>
                         </tr>
@@ -86,12 +94,12 @@
                     </table>
                   </tr>
                   <tr>
-                    <td style="font-size: 10pt; color:#444444; font-family: Arial, sans-serif; padding-top: 5px; padding-left: 10px; vertical-align: bottom;" valign="top">
+                    <td style="color:#444444; font-family: Arial, sans-serif; padding-top: 5px; padding-left: 10px; vertical-align: top; line-height:16px;" valign="top">
                       <span style="font-size: 12px; font-family: Arial, sans-serif; color:#444444;">"What is good for the client is also good for the firm"<br></span>
                     </td>
                   </tr>
                   <tr>
-                    <td style="font-size: 10pt; color:#444444; font-family: Arial, sans-serif; padding-left: 10px; vertical-align: top; float: right;" valign="top">
+                    <td style="color:#444444; font-family: Arial, sans-serif; padding-left: 10px; vertical-align: top; float: right;" valign="top">
                       <span style="font-size: 12px; font-family: Arial, sans-serif; color:#CC0099;"><strong>- T Rowe Price Jr.</strong><br></span>
                     </td>
                   </tr>
@@ -103,27 +111,46 @@
         </tbody>
       </table>
 
-      <!--UNCOMMENT
-      </BODY>
-      </HTML>
-      UNCOMMENT-->
-
     </div>
 
     <div class="generator--controls row">
       <div class="col col-md-6">
         <form>
           <div class="form-group" ng-init="name='Gajendra Kothari, CFA, CAIA'">
-            <label for="email">Name:</label>
+            <label for="name">Name:</label>
             <input type="text" class="form-control" id="name" ng-model="name">
           </div>
           <div class="form-group" ng-init="designation='Managing Director & CEO'">
-            <label for="email">Designation:</label>
+            <label for="designation">Designation:</label>
             <input type="text" class="form-control" id="designation" ng-model="designation">
           </div>
+          <div class="form-group" ng-init="mobile='+91 98678 24321'">
+            <label for="mobile">Mobile Number:</label>
+            <input type="text" class="form-control" id="mobile" ng-model="mobile">
+          </div>
           <div class="form-group" ng-init="pic='https://drive.google.com/uc?export=view&id=16TEQES4at0qSdTnXfYSriNtgGQqraC8o'">
-            <label for="email">Profile Pic Url:</label>
+            <label for="pic">Profile Pic Url:</label>
             <input type="text" class="form-control" id="pic" ng-model="pic">
+          </div>
+        </form>
+      </div>
+      <div class="col col-md-6">
+        <form>
+          <div class="form-group" ng-init="facebook='https://www.facebook.com/eticawealth/'">
+            <label for="facebook">Facebook:</label>
+            <input type="text" class="form-control" id="facebook" ng-model="facebook">
+          </div>
+          <div class="form-group" ng-init="twitter='https://twitter.com/eticawealth'">
+            <label for="twitter">Twitter:</label>
+            <input type="text" class="form-control" id="twitter" ng-model="twitter">
+          </div>
+          <div class="form-group" ng-init="linkedin='https://www.linkedin.com/company/etica-wealth-management-private-limited/'">
+            <label for="linkedin">LinkedIn:</label>
+            <input type="text" class="form-control" id="linkedin" ng-model="linkedin">
+          </div>
+          <div class="form-group" ng-init="zomato=''">
+            <label for="zomato">Zomato (The icon above is hidden because there is no url here.):</label>
+            <input type="text" class="form-control" id="zomato" ng-model="zomato" placeholder="https://www.zomato.com/nktkarnany">
           </div>
         </form>
       </div>
