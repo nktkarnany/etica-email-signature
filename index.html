@@ -41,6 +41,7 @@
       justify-content: center;
       align-items: center;
     }
+
   </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
@@ -68,7 +69,7 @@
         <tbody>
           <tr>
             <td style="font-family: Arial, sans-serif; border-right: 1px solid; border-right-color: #CC0099; padding-right: 10px; vertical-align: middle; text-align: center;" valign="top" rowspan="6" align="center">
-              <img alt="photograph" width="110" border="0" style="border:0; height:auto; width:110px; border-radius: 50%;" ng-src="{{pic}}">
+              <img alt="photograph" width="110" border="0" style="border:0; height:auto; width:110px; border-radius: 50%;" ng-src="{{base_url + user.picId}}">
             </td>
             <td>
               <table cellpadding="0" cellspacing="0">
@@ -156,10 +157,9 @@
             <label for="mobile">Mobile Number:</label>
             <input type="text" class="form-control" id="mobile" ng-model="mobile">
           </div>
-          <div class="form-group" ng-init="pic='https://drive.google.com/uc?export=view&id=1akjBlAF729Ouiio_p_UQhKb_dTllTQaA'">
-            <label for="pic">Profile Pic Url:</label>
-            <input type="text" class="form-control" id="pic" ng-model="pic">
-            <span>Only <strong>Id</strong> Needs To Be Replaced In The Above Link. Get Id From Shareable Link For Your Profile Pic In <a href="https://drive.google.com/drive/folders/1WoPCv3Dryd73n6SYSSxZCOWxXh0b0hUo?usp=sharing" target="_blank">Google Drive Here</a>.</span>
+          <div class="form-group" ng-init="url = 'https://drive.google.com/open?id=1akjBlAF729Ouiio_p_UQhKb_dTllTQaA'; changePic(url)">
+            <label for="url">Profile Pic Url (Get The Shareable Link For Your Profile Pic In <a href="https://drive.google.com/drive/folders/1WoPCv3Dryd73n6SYSSxZCOWxXh0b0hUo?usp=sharing" target="_blank">Google Drive Here</a>):</label>
+            <input type="text" class="form-control" id="url" ng-model="url" ng-change="changePic(url)">
           </div>
         </form>
       </div>
@@ -188,7 +188,32 @@
 
   <script>
     angular.module('myApp', []).
-    controller('myCtrl', ['$scope', function($scope) {}]);
+    controller('myCtrl', ['$scope', function($scope) {
+
+      $scope.base_url = "https://drive.google.com/uc?export=view&id=";
+
+      $scope.user = {
+        picId: ''
+      };
+
+      function getParamFromUrl(param, url) {
+        var tempUrl = url;
+        tempUrl = tempUrl.substring(tempUrl.indexOf("?") + 1, tempUrl.length);
+        var tempUrlVariables = tempUrl.split('&');
+        for (var i = 0; i < tempUrlVariables.length; i++) {
+          var tempParamName = tempUrlVariables[i].split('=');
+          if (tempParamName[0] == param) {
+            return tempParamName[1];
+          }
+        }
+      }
+
+      $scope.changePic = function(url) {
+        $scope.user.picId = getParamFromUrl("id", url);
+      }
+
+    }]);
+
   </script>
 
 </body>
